@@ -1,0 +1,683 @@
+Microsoft Windows [Version 10.0.22000.1936]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Admin>redis-cli --latency
+min: 0, max: 1, avg: 0.31 (1238 samples)^C
+C:\Users\Admin>redis-benchmark -n 10000 -c 100 --csv > benchmark_results.csv
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 --csv > benchmark_results.csv
+The process cannot access the file because it is being used by another process.
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 --csv > benchmark1_results.csv
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t GET -n 100 -c 100
+====== GET ======
+  100 requests completed in 0.01 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+1.00% <= 3 milliseconds
+6.00% <= 4 milliseconds
+24.00% <= 5 milliseconds
+100.00% <= 5 milliseconds
+12500.00 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t GET -n 100 -c 200
+====== GET ======
+  100 requests completed in 0.01 seconds
+  200 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+1.00% <= 3 milliseconds
+52.00% <= 4 milliseconds
+74.00% <= 5 milliseconds
+82.00% <= 6 milliseconds
+87.00% <= 7 milliseconds
+94.00% <= 8 milliseconds
+98.00% <= 9 milliseconds
+100.00% <= 9 milliseconds
+7692.31 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t GET -n 100 -c 300
+====== GET ======
+  100 requests completed in 0.01 seconds
+  300 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+1.00% <= 5 milliseconds
+46.00% <= 6 milliseconds
+75.00% <= 7 milliseconds
+78.00% <= 8 milliseconds
+89.00% <= 9 milliseconds
+95.00% <= 10 milliseconds
+100.00% <= 11 milliseconds
+7142.86 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t GET -n 100 -c 400
+====== GET ======
+  100 requests completed in 0.02 seconds
+  400 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+1.00% <= 12 milliseconds
+28.00% <= 13 milliseconds
+78.00% <= 14 milliseconds
+100.00% <= 14 milliseconds
+5882.35 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t GET -n 100 -c 1000
+====== GET ======
+  100 requests completed in 0.03 seconds
+  1000 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+1.00% <= 19 milliseconds
+29.00% <= 20 milliseconds
+68.00% <= 21 milliseconds
+100.00% <= 21 milliseconds
+3703.70 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t SET -n 100 -c 100
+====== SET ======
+  100 requests completed in 0.01 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+1.00% <= 2 milliseconds
+62.00% <= 3 milliseconds
+100.00% <= 3 milliseconds
+16666.67 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t SET -n 100 -c 200
+====== SET ======
+  100 requests completed in 0.01 seconds
+  200 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+1.00% <= 5 milliseconds
+21.00% <= 6 milliseconds
+92.00% <= 7 milliseconds
+100.00% <= 7 milliseconds
+8333.33 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t SET -n 100 -c 300
+====== SET ======
+  100 requests completed in 0.01 seconds
+  300 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+1.00% <= 9 milliseconds
+66.00% <= 10 milliseconds
+100.00% <= 10 milliseconds
+7692.31 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t SET -n 100 -c 400
+====== SET ======
+  100 requests completed in 0.02 seconds
+  400 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+1.00% <= 12 milliseconds
+41.00% <= 13 milliseconds
+98.00% <= 14 milliseconds
+100.00% <= 14 milliseconds
+5882.35 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t SET -n 100 -c 1000
+====== SET ======
+  100 requests completed in 0.03 seconds
+  1000 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+1.00% <= 21 milliseconds
+38.00% <= 22 milliseconds
+90.00% <= 23 milliseconds
+100.00% <= 23 milliseconds
+3571.43 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t SET -n 10000 -c 100
+====== SET ======
+  10000 requests completed in 0.33 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.02% <= 1 milliseconds
+14.17% <= 2 milliseconds
+28.12% <= 3 milliseconds
+94.50% <= 4 milliseconds
+100.00% <= 4 milliseconds
+30211.48 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t SET -n 20000 -c 100
+====== SET ======
+  20000 requests completed in 0.71 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.00% <= 1 milliseconds
+12.20% <= 2 milliseconds
+20.65% <= 3 milliseconds
+71.83% <= 4 milliseconds
+99.25% <= 5 milliseconds
+100.00% <= 5 milliseconds
+28328.61 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t SET -n 30000 -c 100
+====== SET ======
+  30000 requests completed in 1.02 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+15.37% <= 2 milliseconds
+27.62% <= 3 milliseconds
+88.30% <= 4 milliseconds
+96.42% <= 5 milliseconds
+96.83% <= 6 milliseconds
+99.78% <= 7 milliseconds
+100.00% <= 7 milliseconds
+29382.96 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t SET -n 40000 -c 100
+====== SET ======
+  40000 requests completed in 1.40 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.00% <= 1 milliseconds
+10.64% <= 2 milliseconds
+22.09% <= 3 milliseconds
+82.44% <= 4 milliseconds
+97.57% <= 5 milliseconds
+98.81% <= 6 milliseconds
+100.00% <= 6 milliseconds
+28591.85 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t GET -n 10000 -c 100
+====== GET ======
+  10000 requests completed in 0.32 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+23.54% <= 2 milliseconds
+27.14% <= 3 milliseconds
+92.52% <= 4 milliseconds
+99.71% <= 5 milliseconds
+100.00% <= 5 milliseconds
+30959.75 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t GET -n 20000 -c 100
+====== GET ======
+  20000 requests completed in 0.61 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.00% <= 1 milliseconds
+25.80% <= 2 milliseconds
+37.21% <= 3 milliseconds
+93.77% <= 4 milliseconds
+97.39% <= 5 milliseconds
+100.00% <= 5 milliseconds
+33057.85 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t GET -n 30000 -c 100
+====== GET ======
+  30000 requests completed in 1.01 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.00% <= 1 milliseconds
+7.43% <= 2 milliseconds
+15.62% <= 3 milliseconds
+96.29% <= 4 milliseconds
+99.80% <= 5 milliseconds
+100.00% <= 5 milliseconds
+29556.65 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -t GET -n 40000 -c 100
+====== GET ======
+  40000 requests completed in 1.13 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.12% <= 1 milliseconds
+34.17% <= 2 milliseconds
+44.68% <= 3 milliseconds
+97.42% <= 4 milliseconds
+99.75% <= 5 milliseconds
+99.97% <= 6 milliseconds
+100.00% <= 6 milliseconds
+35242.29 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -q -n 10000 -c 100
+PING_INLINE: 28248.59 requests per second
+PING_BULK: 31948.88 requests per second
+SET: 28571.43 requests per second
+GET: 25252.53 requests per second
+INCR: 27932.96 requests per second
+LPUSH: 28490.03 requests per second
+LPOP: 27322.40 requests per second
+SADD: 28653.29 requests per second
+SPOP: 29940.12 requests per second
+LPUSH (needed to benchmark LRANGE): 27624.31 requests per second
+LRANGE_100 (first 100 elements): 22779.04 requests per second
+LRANGE_300 (first 300 elements): 14513.79 requests per second
+LRANGE_500 (first 450 elements): 11481.06 requests per second
+LRANGE_600 (first 600 elements): 9090.91 requests per second
+MSET (10 keys): 23923.44 requests per second
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -q -n 100000 -c 100
+PING_INLINE: 28129.39 requests per second
+PING_BULK: 30921.46 requests per second
+SET: 29027.58 requests per second
+GET: 29515.94 requests per second
+INCR: 28985.51 requests per second
+LPUSH: 28409.09 requests per second
+LPOP: 29877.50 requests per second
+SADD: 29779.63 requests per second
+SPOP: 34129.69 requests per second
+LPUSH (needed to benchmark LRANGE): 31191.52 requests per second
+LRANGE_100 (first 100 elements): 23730.42 requests per second
+LRANGE_300 (first 300 elements): 13852.33 requests per second
+LRANGE_500 (first 450 elements): 10660.98 requests per second
+LRANGE_600 (first 600 elements): 7306.20 requests per second
+MSET (10 keys): 21762.79 requests per second
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -q -n 200000 -c 100
+PING_INLINE: 30492.45 requests per second
+PING_BULK: 34370.17 requests per second
+SET: 30511.06 requests per second
+GET: 30473.87 requests per second
+INCR: 30093.29 requests per second
+LPUSH: 28977.11 requests per second
+LPOP: 28897.56 requests per second
+SADD: 29442.07 requests per second
+SPOP: 30931.02 requests per second
+LPUSH (needed to benchmark LRANGE): 29235.49 requests per second
+LRANGE_100 (first 100 elements): 22601.42 requests per second
+LRANGE_300 (first 300 elements): 15135.46 requests per second
+LRANGE_500 (first 450 elements): 11114.82 requests per second
+LRANGE_600 (first 600 elements): 8551.76 requests per second
+MSET (10 keys): 22530.13 requests per second
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -q -n 10000 -c 200
+PING_INLINE: 27624.31 requests per second
+PING_BULK: 29325.51 requests per second
+SET: 28328.61 requests per second
+GET: 28571.43 requests per second
+INCR: 27247.96 requests per second
+LPUSH: 27472.53 requests per second
+LPOP: 27027.03 requests per second
+SADD: 28169.02 requests per second
+SPOP: 29239.77 requests per second
+LPUSH (needed to benchmark LRANGE): 26954.18 requests per second
+LRANGE_100 (first 100 elements): 23529.41 requests per second
+LRANGE_300 (first 300 elements): 14903.13 requests per second
+LRANGE_500 (first 450 elements): 11441.65 requests per second
+LRANGE_600 (first 600 elements): 8896.80 requests per second
+MSET (10 keys): 21598.27 requests per second
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -q -n 10000 -c 300
+PING_INLINE: 25706.94 requests per second
+PING_BULK: 26455.03 requests per second
+SET: 26178.01 requests per second
+GET: 26737.97 requests per second
+INCR: 27027.03 requests per second
+LPUSH: 25906.73 requests per second
+LPOP: 26666.67 requests per second
+SADD: 25906.73 requests per second
+SPOP: 27027.03 requests per second
+LPUSH (needed to benchmark LRANGE): 26315.79 requests per second
+LRANGE_100 (first 100 elements): 21321.96 requests per second
+LRANGE_300 (first 300 elements): 14450.87 requests per second
+LRANGE_500 (first 450 elements): 10752.69 requests per second
+LRANGE_600 (first 600 elements): 9242.14 requests per second
+MSET (10 keys): 20618.56 requests per second
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -q -n 10000 -c 400
+PING_INLINE: 25510.21 requests per second
+PING_BULK: 26666.67 requests per second
+SET: 25062.66 requests per second
+GET: 26041.67 requests per second
+INCR: 26041.67 requests per second
+LPUSH: 24213.08 requests per second
+LPOP: 24449.88 requests per second
+SADD: 20080.32 requests per second
+SPOP: 23752.97 requests per second
+LPUSH (needed to benchmark LRANGE): 23201.86 requests per second
+LRANGE_100 (first 100 elements): 18315.02 requests per second
+LRANGE_300 (first 300 elements): 12722.65 requests per second
+LRANGE_500 (first 450 elements): 10040.16 requests per second
+LRANGE_600 (first 600 elements): 8952.55 requests per second
+MSET (10 keys): 19685.04 requests per second
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -n 10000 -c 100
+====== PING_INLINE ======
+  10000 requests completed in 0.38 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+0.87% <= 2 milliseconds
+2.54% <= 3 milliseconds
+95.99% <= 4 milliseconds
+99.06% <= 5 milliseconds
+99.89% <= 30 milliseconds
+100.00% <= 30 milliseconds
+26041.67 requests per second
+
+====== PING_BULK ======
+  10000 requests completed in 0.34 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+0.15% <= 2 milliseconds
+3.73% <= 3 milliseconds
+99.36% <= 4 milliseconds
+100.00% <= 4 milliseconds
+29239.77 requests per second
+
+====== SET ======
+  10000 requests completed in 0.35 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.09% <= 1 milliseconds
+1.67% <= 2 milliseconds
+4.91% <= 3 milliseconds
+99.78% <= 4 milliseconds
+100.00% <= 4 milliseconds
+28735.63 requests per second
+
+====== GET ======
+  10000 requests completed in 0.34 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+7.71% <= 2 milliseconds
+13.16% <= 3 milliseconds
+92.83% <= 4 milliseconds
+98.30% <= 5 milliseconds
+100.00% <= 5 milliseconds
+29325.51 requests per second
+
+====== INCR ======
+  10000 requests completed in 0.35 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+0.15% <= 2 milliseconds
+2.47% <= 3 milliseconds
+98.87% <= 4 milliseconds
+100.00% <= 4 milliseconds
+28571.43 requests per second
+
+====== LPUSH ======
+  10000 requests completed in 0.36 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+0.79% <= 2 milliseconds
+3.32% <= 3 milliseconds
+94.78% <= 4 milliseconds
+100.00% <= 4 milliseconds
+28089.89 requests per second
+
+====== LPOP ======
+  10000 requests completed in 0.33 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+8.17% <= 2 milliseconds
+16.57% <= 3 milliseconds
+99.56% <= 4 milliseconds
+100.00% <= 4 milliseconds
+30211.48 requests per second
+
+====== SADD ======
+  10000 requests completed in 0.34 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+4.95% <= 2 milliseconds
+12.82% <= 3 milliseconds
+98.75% <= 4 milliseconds
+100.00% <= 4 milliseconds
+29411.76 requests per second
+
+====== SPOP ======
+  10000 requests completed in 0.31 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+12.51% <= 2 milliseconds
+22.65% <= 3 milliseconds
+99.06% <= 4 milliseconds
+100.00% <= 4 milliseconds
+31948.88 requests per second
+
+====== LPUSH (needed to benchmark LRANGE) ======
+  10000 requests completed in 0.36 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+0.42% <= 2 milliseconds
+4.22% <= 3 milliseconds
+96.32% <= 4 milliseconds
+100.00% <= 4 milliseconds
+27777.78 requests per second
+
+====== LRANGE_100 (first 100 elements) ======
+  10000 requests completed in 0.48 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+4.25% <= 2 milliseconds
+13.63% <= 3 milliseconds
+25.26% <= 4 milliseconds
+86.38% <= 5 milliseconds
+95.14% <= 6 milliseconds
+99.95% <= 7 milliseconds
+100.00% <= 7 milliseconds
+20920.50 requests per second
+
+====== LRANGE_300 (first 300 elements) ======
+  10000 requests completed in 0.67 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+0.38% <= 2 milliseconds
+5.84% <= 3 milliseconds
+38.24% <= 4 milliseconds
+64.69% <= 5 milliseconds
+80.64% <= 6 milliseconds
+96.47% <= 7 milliseconds
+97.69% <= 8 milliseconds
+98.20% <= 9 milliseconds
+99.23% <= 10 milliseconds
+99.84% <= 11 milliseconds
+99.94% <= 12 milliseconds
+100.00% <= 12 milliseconds
+14992.50 requests per second
+
+====== LRANGE_500 (first 450 elements) ======
+  10000 requests completed in 0.88 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 2 milliseconds
+0.41% <= 3 milliseconds
+5.10% <= 4 milliseconds
+88.25% <= 5 milliseconds
+92.49% <= 6 milliseconds
+95.31% <= 7 milliseconds
+97.89% <= 8 milliseconds
+98.89% <= 9 milliseconds
+99.44% <= 10 milliseconds
+99.67% <= 11 milliseconds
+99.89% <= 12 milliseconds
+100.00% <= 12 milliseconds
+11363.64 requests per second
+
+====== LRANGE_600 (first 600 elements) ======
+  10000 requests completed in 1.10 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 1 milliseconds
+0.03% <= 2 milliseconds
+0.64% <= 3 milliseconds
+1.04% <= 4 milliseconds
+10.52% <= 5 milliseconds
+83.92% <= 6 milliseconds
+91.98% <= 7 milliseconds
+94.83% <= 8 milliseconds
+96.10% <= 9 milliseconds
+97.26% <= 10 milliseconds
+98.03% <= 11 milliseconds
+98.56% <= 12 milliseconds
+99.02% <= 13 milliseconds
+99.24% <= 14 milliseconds
+99.45% <= 15 milliseconds
+99.52% <= 16 milliseconds
+99.63% <= 17 milliseconds
+99.80% <= 18 milliseconds
+99.94% <= 19 milliseconds
+100.00% <= 19 milliseconds
+9074.41 requests per second
+
+====== MSET (10 keys) ======
+  10000 requests completed in 0.45 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.01% <= 2 milliseconds
+0.58% <= 3 milliseconds
+5.18% <= 4 milliseconds
+96.67% <= 5 milliseconds
+100.00% <= 5 milliseconds
+22075.05 requests per second
+
+
+
+C:\Users\Admin>redis-benchmark -h 127.0.0.1 -p 6379 -n 10000 -c 100 --csv > benchmark2.csv
+
+C:\Users\Admin>redis-benchmark -c 100 -p 6379
+====== PING_INLINE ======
+  100000 requests completed in 3.42 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.00% <= 1 milliseconds
+3.19% <= 2 milliseconds
+6.09% <= 3 milliseconds
+98.49% <= 4 milliseconds
+99.91% <= 5 milliseconds
+100.00% <= 5 milliseconds
+29214.14 requests per second
+
+====== PING_BULK ======
+  100000 requests completed in 3.28 seconds
+  100 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+0.00% <= 1 milliseconds
+8.63% <= 2 milliseconds
+12.21% <= 3 milliseconds
+98.85% <= 4 milliseconds
+100.00% <= 5 milliseconds
+100.00% <= 5 milliseconds
+30534.35 requests per second
+
+^CT: 28864.89
+C:\Users\Admin>redis-benchmark -c 100 -p 6379 --csv > benchmark3.csv
+
+C:\Users\Admin>
